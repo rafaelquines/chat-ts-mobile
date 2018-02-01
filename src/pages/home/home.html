@@ -1,14 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Chat C&C TOTVS
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-label>Seu nome: {{myName}}</ion-label>
+  <ion-input type="text" placeholder="Mensagem" [(ngModel)]="message"></ion-input>
+  <button ion-button (click)="sendMessage();">Enviar</button>
+
+  <ion-card *ngFor="let msg of messages">
+      <ion-card-header>
+        {{msg.name}}
+      </ion-card-header>
+      <ion-card-content>
+        {{msg.message}}
+      </ion-card-content>
+    </ion-card>
 </ion-content>
